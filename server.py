@@ -8,7 +8,7 @@ from forms.login import LoginForm
 from forms.register import RegisterForm
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+app.config['SECRET_KEY'] = 'key'
 db_session.global_init("db/mydatabase.db")
 login_manager = LoginManager()
 login_manager.init_app(app)
