@@ -354,6 +354,7 @@ function missedTheSpot() {
   scene.remove(topLayer.threejs);
   // помечаем, что наступил конец игры
   gameEnded = true;
+  sendData();
   // если есть результаты и сейчас не была демоигра — выводим результаты на экран
   if (resultsElement && !autopilot) resultsElement.style.display = "flex";
 }
@@ -441,3 +442,18 @@ window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.render(scene, camera);
 });
+
+function sendData() {
+    var value = stack.length - 2;
+    $.ajax({
+        url: '/playgame1',
+        type: 'POST',
+        data: { 'data': value },
+        success: function(response) {
+            document.getElementById('output').innerHTML = response;
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+}
