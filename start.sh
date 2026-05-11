@@ -20,4 +20,4 @@ if [ -f "requirements.txt" ]; then
 fi
 
 echo "Starting application..."
-python main.py
+python server.py
